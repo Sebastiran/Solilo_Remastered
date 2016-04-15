@@ -46,19 +46,10 @@ public class OWCPlatformBehaviour : MonoBehaviour
     {
         if (boy && girl)
         {
-            if (GameObject.Find("Player Character (Boy)").GetComponent<PlatformerControls>().activateNeutral)
+            timer++;
+            if (timer > 10)
             {
-                spriteRenderer.sprite = neutral;
-                boy = false;
-                girl = false;
-            }
-            else
-            {
-                timer++;
-                if (timer > 10)
-                {
-                    gameObject.SetActive(false);
-                }
+                gameObject.SetActive(false);
             }
         }
     }
