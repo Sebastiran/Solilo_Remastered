@@ -5,17 +5,10 @@ using UnityEngine.Events;
 public class PlatformBehaviour : MonoBehaviour {
 	public bool boy;
 	public bool girl;
-	CollisionTrigger2D changespriteneutral;
 	
 	public GameObject despawnPrefab;
 	public GameObject colorParticles;
 	public UnityEvent afterDespawn;
-
-	void Start ()
-	{
-		GameObject a = GameObject.FindWithTag("GroundDetector");
-		changespriteneutral = a.GetComponent<CollisionTrigger2D>();
-	}
 
 	// Update is called once per frame
 	void Update () {
