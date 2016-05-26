@@ -5,13 +5,6 @@ using UnityEngine.Events;
 
 public class CollisionTrigger2D : MonoBehaviour
 {
-	public Sprite sprite1;
-	public Sprite sprite2;
-	public Sprite neutralsprite;
-	
-	private SpriteRenderer spriteRenderer;
-
-	PlatformBehaviour p;
 	public Event MostRecentEvent
 	{
 		get;
@@ -27,29 +20,11 @@ public class CollisionTrigger2D : MonoBehaviour
 	{
 		MostRecentEvent = Event.Enter;
 
-			if(other.tag == "Platform")
-			{
-				spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
-				ChangeSprite ();
-
-				GetComponent<AudioSource>().Play();
-				p = other.GetComponent<PlatformBehaviour>();
-				p.boyTrue();
-			}
-	}
-
-	void ChangeSprite ()
-	{
-		if (spriteRenderer.sprite == sprite1)
-		{
-			spriteRenderer.sprite = sprite2;
-		}
-	}
-
-	public void ChangeSpriteNeutral ()
-	{
-		spriteRenderer.sprite = neutralsprite;
-	}
+        if (other.tag == "Platform")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+    }
 
 	void OnTriggerExit2D(Collider2D other)
 	{
