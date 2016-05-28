@@ -13,7 +13,7 @@ public class OWCPlatformBehaviour : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    void Start()
+    void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
