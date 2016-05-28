@@ -3,37 +3,87 @@ using System.Collections;
 using UnityEngine.Events;
 
 public class PlatformBehaviour : MonoBehaviour {
-	public bool boy;
-	public bool girl;
-	
-	public GameObject despawnPrefab;
+    public bool boyStart;
+    public bool girlStart;
+
+    protected bool boy;
+	protected bool girl;
+
+    public Sprite blue, pink, neutral;
+    protected SpriteRenderer spriteRenderer;
+
+    public GameObject despawnPrefab;
 	public GameObject colorParticles;
 	public UnityEvent afterDespawn;
 
-	// Update is called once per frame
-	void Update () {
-		
-		if (boy == true && girl == true) 
-		{
-            Instantiate(despawnPrefab, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
-            afterDespawn.Invoke();
-		}
+    protected void Start ()
+	{
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        if (boyStart)
+            boyTrue();
+        if (girlStart)
+            girlTrue();
+        CheckDespawn();
 	}
 
-	public void boyTrue()
+    public virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Boy")
+        {
+            boyTrue();
+            CheckDespawn();
+        }
+        else if (other.tag == "Girl")
+        {
+            girlTrue();
+            CheckDespawn();
+        }
+    }
+
+    protected void CheckDespawn()
+    {
+        if (boy == true && girl == true)
+        {
+            Despawn();
+        }
+    }
+
+    protected void Despawn()
+    {
+        Instantiate(despawnPrefab, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
+        afterDespawn.Invoke();
+    }
+
+    protected void ChangeSprite(Sprite sprite)
+    {
+        if (spriteRenderer.sprite != sprite)
+        {
+            spriteRenderer.sprite = sprite;
+        }
+    }
+
+    protected void boyTrue()
 	{
-		boy = true;
-		GameObject a = Instantiate(colorParticles, transform.position, Quaternion.identity) as GameObject;
-		ParticleSystem b = a.GetComponent<ParticleSystem> ();
-		b.startColor = new Color (0.5f, 0.5f, 1, 1f);
+        if (!boy)
+        {
+            boy = true;
+            GameObject a = Instantiate(colorParticles, transform.position, Quaternion.identity) as GameObject;
+            ParticleSystem b = a.GetComponent<ParticleSystem>();
+            b.startColor = new Color(0.5f, 0.5f, 1, 1f);
+            ChangeSprite(blue);
+        }
 	}
 
-	public void girlTrue()
+    protected void girlTrue()
 	{
-		girl = true;
-		GameObject a = Instantiate(colorParticles, transform.position, Quaternion.identity) as GameObject;
-		ParticleSystem b = a.GetComponent<ParticleSystem> ();
-		b.startColor = new Color (1, 0.5f, 1, 1f);
-	}
+        if (!girl)
+        {
+            girl = true;
+		    GameObject a = Instantiate(colorParticles, transform.position, Quaternion.identity) as GameObject;
+		    ParticleSystem b = a.GetComponent<ParticleSystem> ();
+		    b.startColor = new Color (1, 0.5f, 1, 1f);
+            ChangeSprite(pink);
+        }
+    }
 }

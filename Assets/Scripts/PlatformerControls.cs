@@ -15,8 +15,10 @@ public class PlatformerControls : MonoBehaviour
 	public KeyCode jumpKey;
     public GameObject player;
     int timer;
+	int powerTime = 0;
 	public Vector2 raycastOffset;
 	public float rayLength;
+	float timerPowerup = 4;
 
 	void FixedUpdate()
 	{
@@ -63,6 +65,7 @@ public class PlatformerControls : MonoBehaviour
 			case Type.Displacement:
 				transform.position += movement * Time.fixedDeltaTime;
 				break;
+
 			case Type.Acceleration:
 				GetComponent<Rigidbody2D>().velocity += new Vector2(movement.x, movement.y);
 				break;

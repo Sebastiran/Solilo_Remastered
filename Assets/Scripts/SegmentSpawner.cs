@@ -15,6 +15,8 @@ public class SegmentSpawner : MonoBehaviour
     private float m_SpawnTriggerDistance = 0.0f;
     [SerializeField]
     private Transform m_SpawnRoot;
+    [SerializeField]
+    private float m_SpawnHeight = 0.1f;
 
     private Transform[] m_Segments;
     private Vector2 m_NextSpawnPoint;
@@ -23,7 +25,7 @@ public class SegmentSpawner : MonoBehaviour
     private void Start()
     {
         m_Segments = new Transform[m_SegmentBufferCount];
-        m_NextSpawnPoint = m_CameraTransform.position;
+        m_NextSpawnPoint = new Vector2(m_CameraTransform.position.x, m_SpawnHeight);
     }
 
     private void Update()
