@@ -85,42 +85,42 @@ NavMeshSettings:
     cellSize: 0.16666666
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &208652209
+--- !u!1001 &148238477
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 470142, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
+    - target: {fileID: 422694, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -39.766
+      value: -17.86
       objectReference: {fileID: 0}
-    - target: {fileID: 470142, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
+    - target: {fileID: 422694, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.9805
+      value: -0.14
       objectReference: {fileID: 0}
-    - target: {fileID: 470142, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
+    - target: {fileID: 422694, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
       propertyPath: m_LocalPosition.z
       value: 1.355
       objectReference: {fileID: 0}
-    - target: {fileID: 470142, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
+    - target: {fileID: 422694, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 470142, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
+    - target: {fileID: 422694, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 470142, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
+    - target: {fileID: 422694, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 470142, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
+    - target: {fileID: 422694, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 470142, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
+    - target: {fileID: 422694, guid: fd6ee069136b7674eb4a861a158dbc16, type: 2}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
