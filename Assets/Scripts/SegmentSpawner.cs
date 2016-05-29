@@ -16,7 +16,7 @@ public class SegmentSpawner : MonoBehaviour
     [SerializeField]
     private Transform m_SpawnRoot;
     [SerializeField]
-    private float m_SpawnHeight = 0.1f;
+    private Vector2 m_SpawnOffset = new Vector2();
 
     private Transform[] m_Segments;
     private Vector2 m_NextSpawnPoint;
@@ -25,7 +25,7 @@ public class SegmentSpawner : MonoBehaviour
     private void Start()
     {
         m_Segments = new Transform[m_SegmentBufferCount];
-        m_NextSpawnPoint = new Vector2(m_CameraTransform.position.x, m_SpawnHeight);
+        m_NextSpawnPoint = m_CameraTransform.position;
     }
 
     private void Update()
@@ -49,10 +49,23 @@ public class SegmentSpawner : MonoBehaviour
         {
             Destroy(m_Segments[segmentIndex].gameObject);
         }
-        int possibleSegmentIndex = Random.Range(0, m_PossibleSegments.Length - 1);
+        int possibleSegmentIndex = Random.Range(0, m_PossibleSegments.Length);
         m_Segments[segmentIndex] = Instantiate(m_PossibleSegments[possibleSegmentIndex]);
         m_Segments[segmentIndex].SetParent(m_SpawnRoot, true);
-        m_Segments[segmentIndex].position = a_Position; 
+        m_Segments[segmentIndex].position = a_Position + m_SpawnOffset; 
         m_PreviousSegmentIndex = segmentIndex;
+    }
+
+    public void Reset()
+    {
+        m_PreviousSegmentIndex = 0;
+        foreach(Transform segment in m_Segments)
+        {
+            if (segment != null)
+            {
+                Destroy(segment.gameObject);
+            }
+        }
+        m_NextSpawnPoint = m_CameraTransform.position;
     }
 }
