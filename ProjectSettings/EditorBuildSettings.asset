@@ -12,7 +12,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Tutorial level.unity
   - enabled: 1
-    path: Assets/_Scenes/Tutorial2.unity
+    path: Assets/_Scenes/Level0.unity
   - enabled: 1
     path: Assets/_Scenes/Tutorial3.unity
   - enabled: 1
@@ -24,7 +24,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/NeutralPlatform.unity
   - enabled: 1
-    path: Assets/_Scenes/OWC Level.unity
+    path: Assets/_Scenes/Level3.unity
   - enabled: 1
     path: Assets/_Scenes/Solo1.unity
   - enabled: 1
