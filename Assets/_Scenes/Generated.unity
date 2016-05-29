@@ -100,7 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936d577b6e266f640b807a8a75be3848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterRespawner: {fileID: 0}
+  m_StartSpeed: 0.045
+  m_SpeedIncrement: 0.000005
+  m_Transform: {fileID: 1259104525}
+  m_StartPoint: {fileID: 906843301}
 --- !u!1 &137043560
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +178,7 @@ GameObject:
   - 61: {fileID: 450932653}
   m_Layer: 0
   m_Name: LeftBoundary
-  m_TagString: Untagged
+  m_TagString: Terminal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,11 +204,38 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -2.01, y: 0}
   serializedVersion: 2
   m_Size: {x: 3.22, y: 15}
+--- !u!1 &906843300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 906843301}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &906843301
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906843300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.91, y: 0.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &1112388347 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: deaa39961882e6c4f804c8ca6c97b4da, type: 2}
@@ -222,7 +252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TerminalHeight: -10
-  m_SpawnTransform: {fileID: 0}
+  m_SpawnTransform: {fileID: 906843301}
+  m_CameraController: {fileID: 20912209}
+  m_SegmentSpawner: {fileID: 2082924623}
 --- !u!1001 &1157920183
 Prefab:
   m_ObjectHideFlags: 0
@@ -474,7 +506,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5a0ad827a7a603d4a8616ce8a6f5eb6e, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11415376, guid: 5a0ad827a7a603d4a8616ce8a6f5eb6e, type: 2}
       propertyPath: character
@@ -563,7 +595,7 @@ MonoBehaviour:
   - {fileID: 450928, guid: cbfe7eef785c35247ad2839405e7c0c3, type: 2}
   - {fileID: 462192, guid: 9129c034020c0da429c76d3965d25630, type: 2}
   - {fileID: 425640, guid: 1af6dcbf80323ca4a8a44cb02b7a30c1, type: 2}
-  m_SegmentLength: 28
+  m_SegmentLength: 30
   m_CameraTransform: {fileID: 1259104525}
   m_SegmentBufferCount: 7
   m_SpawnTriggerDistance: 35
