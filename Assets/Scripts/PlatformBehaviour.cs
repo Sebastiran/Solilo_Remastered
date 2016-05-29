@@ -44,12 +44,13 @@ public class PlatformBehaviour : MonoBehaviour {
     {
         if (boy == true && girl == true)
         {
-            Despawn();
+            StartCoroutine(Despawn());
         }
     }
 
-    protected void Despawn()
+    protected IEnumerator Despawn()
     {
+        yield return new WaitForSeconds(0.1f);
         Instantiate(despawnPrefab, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
         afterDespawn.Invoke();
